@@ -1,0 +1,23 @@
+{
+  "name": "java-blitz-calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/*.html",
+    "build": "parcel build src/*.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sascharissling/java-blitz-calculator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sascharissling/java-blitz-calculator/issues"
+  },
+  "homepage": "https://github.com/sascharissling/java-blitz-calculator#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}

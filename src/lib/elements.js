@@ -1,8 +1,9 @@
 export function createDivWithContent(content) {
-  //see
+  // use https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
+  // use https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML for content
 }
 
 export function appendElementToElement(parent, child) {
-  // see MDN Node/append/Child
+  // see https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild
   parent.appendChild(child);
 }

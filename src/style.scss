@@ -8,7 +8,6 @@ body {
   background: #333;
   display: flex;
   flex-direction: column;
-  height: auto;
   flex-grow: 1;
   align-items: center;
 }
@@ -121,18 +120,25 @@ input[name="second"] {
   font-weight: bold;
   font-size: 35px;
   background: 333;
-  text-align: center;
+  text-align: right;
+  vertical-align: bottom;
   height: 50vh;
   width: auto;
   border-radius: 10px;
   margin-left: 5px;
   margin-right: 5px;
-  position: relative;
+  // position: relative;
+}
+
+.latestresult {
+  background: #808085;
+  height: 50px;
+  padding-top: 3px;
 }
 
 .equals {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  // position: absolute;
+  // bottom: 0;
+  // right: 0;
   margin-right: 5px;
 }

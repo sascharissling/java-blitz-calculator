@@ -15,8 +15,11 @@ body {
 .calculator {
   display: flex;
   flex-direction: column;
-  width: 95vw;
+  width: 90vw;
   max-width: 500px;
+  height: 95vh;
+  margin-top: 10px;
+  margin-bottom: 10px;
   font-family: monospace;
 }
 

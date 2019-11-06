@@ -39,3 +39,5 @@ divideButton.addEventListener("click", function() {
 countButton.addEventListener("click", function() {
   result.innerHTML = countDigits();
 });
+
+//add new element with string count

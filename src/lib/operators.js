@@ -14,6 +14,6 @@ export function divide(first, second) {
   return first / second;
 }
 
-export function countDigits(n) {
-  return n.toString().length;
+export function countDigits(number) {
+  return number.toString().length;
 }

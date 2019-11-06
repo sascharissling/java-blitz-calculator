@@ -145,8 +145,8 @@ function divide(first, second) {
   return first / second;
 }
 
-function countDigits(n) {
-  return n.toString().length;
+function countDigits(number) {
+  return number.toString().length;
 }
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
@@ -183,7 +183,7 @@ divideButton.addEventListener("click", function () {
 });
 countButton.addEventListener("click", function () {
   result.innerHTML = (0, _operators.countDigits)();
-});
+}); //add new element with string count
 },{"./lib/operators":"lib/operators.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -212,7 +212,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56984" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49474" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

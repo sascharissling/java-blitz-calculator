@@ -117,74 +117,79 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"lib/operators.js":[function(require,module,exports) {
-"use strict";
+})({"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.sum = sum;
-exports.sub = sub;
-exports.mult = mult;
-exports.divide = divide;
-exports.countDigits = countDigits;
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
 
-function sum(first, second) {
-  return first + second;
+  return bundleURL;
 }
 
-function sub(first, second) {
-  return first - second;
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
 }
 
-function mult(first, second) {
-  return first * second;
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
 }
 
-function divide(first, second) {
-  return first / second;
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
 }
 
-function countDigits(n) {
-  return n.toString().length;
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
 }
-},{}],"index.js":[function(require,module,exports) {
-"use strict";
 
-var _operators = require("./lib/operators");
+module.exports = reloadCSS;
+},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"style.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
 
-var firstInput = document.querySelector("[name=first]");
-var secondInput = document.querySelector("[name=second]");
-var sumButton = document.querySelector(".sum");
-var subButton = document.querySelector(".sub");
-var multButton = document.querySelector(".mult");
-var divideButton = document.querySelector(".divide");
-var countButton = document.querySelector("#count");
-var result = document.querySelector("#result");
-sumButton.addEventListener("click", function () {
-  var firstNumber = parseInt(firstInput.value);
-  var secondNumber = parseInt(secondInput.value);
-  result.innerHTML = (0, _operators.sum)(firstNumber, secondNumber);
-});
-subButton.addEventListener("click", function () {
-  var firstNumber = parseInt(firstInput.value);
-  var secondNumber = parseInt(secondInput.value);
-  result.innerHTML = (0, _operators.sub)(firstNumber, secondNumber);
-});
-multButton.addEventListener("click", function () {
-  var firstNumber = parseInt(firstInput.value);
-  var secondNumber = parseInt(secondInput.value);
-  result.innerHTML = (0, _operators.mult)(firstNumber, secondNumber);
-});
-divideButton.addEventListener("click", function () {
-  var firstNumber = parseInt(firstInput.value);
-  var secondNumber = parseInt(secondInput.value);
-  result.innerHTML = (0, _operators.divide)(firstNumber, secondNumber);
-});
-countButton.addEventListener("click", function () {
-  result.innerHTML = (0, _operators.countDigits)();
-});
-},{"./lib/operators":"lib/operators.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -388,5 +393,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
-//# sourceMappingURL=/src.e31bb0bc.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/style.97fcb138.js.map

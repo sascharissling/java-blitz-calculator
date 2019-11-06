@@ -18,6 +18,9 @@ body {
   width: 95vw;
   max-width: 500px;
   font-family: monospace;
+  height: 95vh;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .inputs {
@@ -127,6 +130,7 @@ input[name=second] {
   border-radius: 10px;
   margin-left: 5px;
   margin-right: 5px;
+  overflow: auto;
 }
 
 .latestresult {

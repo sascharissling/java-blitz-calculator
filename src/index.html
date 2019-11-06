@@ -4,39 +4,92 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Java-Blitz-Calculatot</title>
+    <title>Java-Blitz-Calculator</title>
     <style>
+      body {
+        background: #333;
+      }
+
+      .calculator {
+        display: flex;
+        flex-direction: column;
+        width: auto;
+      }
+
+      wrap {
+        color: lightgray;
+      }
+
+      .inputs {
+        width: auto;
+        /* display: flex; */
+        justify-content: space-between;
+        display: flex;
+      }
+
       input[name="first"] {
         background: lightgray;
+        padding: 5px;
+        font-size: 16px;
+        margin: 5px;
+        width: 50%;
+        border-radius: 10px;
       }
 
       input[name="second"] {
         background: lightgray;
+        padding: 5px;
+        font-size: 16px;
+        margin: 5px;
+        width: 50%;
+        border-radius: 10px;
       }
 
-      .submit {
+      .buttons {
+        display: flex;
+        width: auto;
+        justify-content: space-between;
+      }
+
+      .sum,
+      .sub,
+      .mult,
+      .divide {
         background: lightcoral;
+        padding: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 5px;
+        width: 25%;
+        border-radius: 10px;
       }
 
-      body {
-        background: #333;
+      #result {
+        border: 1px solid white;
+        font-weight: bold;
+        font-size: 60px;
+        background: lightgreen;
+        text-align: center;
+        width: auto;
+        border-radius: 10px;
       }
     </style>
   </head>
   <body>
-    <input
-      type="text"
-      name="first"
-      placeholder="Enter first number"
-      value="22"
-    />
-    <input
-      type="text"
-      name="second"
-      placeholder="Enter second number"
-      value="117"
-    />
-    <button class="submit">Submit</button>
+    <div class="calculator">
+      <div class="inputs">
+        <input type="text" name="first" placeholder="Number One" />
+
+        <input type="text" name="second" placeholder="Number Two" />
+      </div>
+      <div class="buttons">
+        <button class="sum">+</button>
+        <button class="sub">-</button>
+        <button class="mult">x</button>
+        <button class="divide">/</button>
+      </div>
+      <div id="result">0</div>
+    </div>
     <script src="index.js"></script>
   </body>
 </html>

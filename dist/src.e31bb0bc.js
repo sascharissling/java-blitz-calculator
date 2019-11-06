@@ -117,15 +117,65 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"index.js":[function(require,module,exports) {
+})({"lib/operators.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.sum = sum;
+exports.sub = sub;
+exports.mult = mult;
+exports.divide = divide;
+
+function sum(first, second) {
+  return first + second;
+}
+
+function sub(first, second) {
+  return first - second;
+}
+
+function mult(first, second) {
+  return first * second;
+}
+
+function divide(first, second) {
+  return first / second;
+}
+},{}],"index.js":[function(require,module,exports) {
+"use strict";
+
+var _operators = require("./lib/operators");
+
 var firstInput = document.querySelector("[name=first]");
 var secondInput = document.querySelector("[name=second]");
-var submitButton = document.querySelector(".submit");
-submitButton.addEventListener("click", function () {
-  var sum = parseInt(firstInput.value) * parseInt(secondInput.value);
-  alert(sum);
+var sumButton = document.querySelector(".sum");
+var subButton = document.querySelector(".sub");
+var multButton = document.querySelector(".mult");
+var divideButton = document.querySelector(".divide");
+var result = document.querySelector("#result");
+sumButton.addEventListener("click", function () {
+  var firstNumber = parseInt(firstInput.value);
+  var secondNumber = parseInt(secondInput.value);
+  result.innerHTML = (0, _operators.sum)(firstNumber, secondNumber);
 });
-},{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+subButton.addEventListener("click", function () {
+  var firstNumber = parseInt(firstInput.value);
+  var secondNumber = parseInt(secondInput.value);
+  result.innerHTML = (0, _operators.sub)(firstNumber, secondNumber);
+});
+multButton.addEventListener("click", function () {
+  var firstNumber = parseInt(firstInput.value);
+  var secondNumber = parseInt(secondInput.value);
+  result.innerHTML = (0, _operators.mult)(firstNumber, secondNumber);
+});
+divideButton.addEventListener("click", function () {
+  var firstNumber = parseInt(firstInput.value);
+  var secondNumber = parseInt(secondInput.value);
+  result.innerHTML = (0, _operators.divide)(firstNumber, secondNumber);
+});
+},{"./lib/operators":"lib/operators.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -153,7 +203,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51025" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52411" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

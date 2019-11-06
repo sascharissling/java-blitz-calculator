@@ -127,6 +127,7 @@ exports.sum = sum;
 exports.sub = sub;
 exports.mult = mult;
 exports.divide = divide;
+exports.countDigits = countDigits;
 
 function sum(first, second) {
   return first + second;
@@ -142,6 +143,10 @@ function mult(first, second) {
 
 function divide(first, second) {
   return first / second;
+}
+
+function countDigits(n) {
+  return n.toString().length;
 }
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
@@ -203,7 +208,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52462" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54774" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

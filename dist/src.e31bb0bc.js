@@ -127,6 +127,7 @@ exports.sum = sum;
 exports.sub = sub;
 exports.mult = mult;
 exports.divide = divide;
+exports.countDigits = countDigits;
 
 function sum(first, second) {
   return first + second;
@@ -143,6 +144,10 @@ function mult(first, second) {
 function divide(first, second) {
   return first / second;
 }
+
+function countDigits(n) {
+  return n.toString().length;
+}
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
 
@@ -154,6 +159,7 @@ var sumButton = document.querySelector(".sum");
 var subButton = document.querySelector(".sub");
 var multButton = document.querySelector(".mult");
 var divideButton = document.querySelector(".divide");
+var countButton = document.querySelector("#count");
 var result = document.querySelector("#result");
 sumButton.addEventListener("click", function () {
   var firstNumber = parseInt(firstInput.value);
@@ -174,6 +180,9 @@ divideButton.addEventListener("click", function () {
   var firstNumber = parseInt(firstInput.value);
   var secondNumber = parseInt(secondInput.value);
   result.innerHTML = (0, _operators.divide)(firstNumber, secondNumber);
+});
+countButton.addEventListener("click", function () {
+  result.innerHTML = (0, _operators.countDigits)();
 });
 },{"./lib/operators":"lib/operators.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -203,7 +212,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52462" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56984" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

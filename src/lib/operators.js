@@ -13,3 +13,7 @@ export function mult(first, second) {
 export function divide(first, second) {
   return first / second;
 }
+
+export function countDigits(n) {
+  return n.toString().length;
+}

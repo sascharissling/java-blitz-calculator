@@ -1,0 +1,138 @@
+*,
+*:before,
+*:after {
+  border-style: border-box;
+}
+
+body {
+  background: #333;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  width: 95vw;
+  max-width: 500px;
+  font-family: monospace;
+}
+
+.inputs {
+  width: auto;
+  /* display: flex; */
+  justify-content: space-between;
+  display: flex;
+}
+
+input[name="first"],
+input[name="second"] {
+  background: lightgray;
+  padding: 5px;
+  font-size: 16px;
+  margin: 5px;
+  width: 50%;
+  border-radius: 10px;
+  border: 1px solid white;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  width: auto;
+  justify-content: space-between;
+}
+
+.num_buttons {
+  display: flex;
+  width: auto;
+  justify-content: space-between;
+}
+
+.sum,
+.sub,
+.mult,
+.divide {
+  background: #515151;
+  padding: 5px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 5px;
+  width: 25%;
+  border-radius: 15px;
+}
+
+.number {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 5px;
+  width: 25%;
+  height: 60px;
+  border-radius: 15px;
+}
+
+.number_equal {
+  background: #ff7c14;
+  border: 1px solid white;
+  padding: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 5px;
+  width: 25%;
+  height: 60px;
+  border-radius: 15px;
+}
+
+.low_number {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 5px;
+  width: 50%;
+  height: 60px;
+  border-radius: 15px;
+}
+
+.low_number_equal {
+  background: #ff7c14;
+  border: 1px solid white;
+  padding: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 5px;
+  width: 50%;
+  border-radius: 15px;
+}
+
+.result {
+  border: 2px solid white;
+  color: white;
+  font-weight: bold;
+  font-size: 35px;
+  background: 333;
+  text-align: center;
+  height: 50vh;
+  width: auto;
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  position: relative;
+}
+
+.equals {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 5px;
+}

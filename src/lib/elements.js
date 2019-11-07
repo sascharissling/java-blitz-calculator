@@ -1,11 +1,20 @@
 export function createDivWithContent(content) {
-  // use https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
-  let newDiv = document.createElement("div");
-  let newContent = document.createTextNode("Hi there and greetings!");
-  // use https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML for content
+  // create a new div element
+  const newDiv = document.createElement("div");
+  // and give it some content
+  const newContent = newDiv.innerHTML;
+  // add the text node to the newly created div
+  newDiv.appendChild(newContent);
+
+  // add the newly created element and its content into the DOM
+  const currentDiv = document.querySelector(".equals");
+  document.body.insertBefore(newDiv, currentDiv);
 }
 
 export function appendElementToElement(parent, child) {
-  // see https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild
   parent.appendChild(child);
 }
+
+// use https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
+// use https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML for content
+// see https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild

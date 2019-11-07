@@ -8,9 +8,10 @@ const sumButton = document.querySelector(".sum");
 const subButton = document.querySelector(".sub");
 const multButton = document.querySelector(".mult");
 const divideButton = document.querySelector(".divide");
-const countButton = document.querySelector("#count");
 const result = document.querySelector("#result");
 const clearButton = document.querySelector("#clear");
+const crossButton = document.querySelector("#cross");
+const countButton = document.querySelector("#count");
 
 // CLEAR BUTTON
 clearButton.addEventListener("click", function() {
@@ -22,36 +23,51 @@ clearButton.addEventListener("click", function() {
     .insertBefore(newElement, document.body.querySelector(".log").firstChild);
 });
 
+// CROSS Button (Only Works >= 0 -- WHY?)
+crossButton.addEventListener("click", function() {
+  let value = document.body.querySelector(".log").firstChild.innerHTML;
+  let cross = value
+    .toString()
+    .split("")
+    .map(Number)
+    .reduce(function(acc, current) {
+      return acc + current;
+    }, 0);
+  insertLog(cross);
+});
+
+// COUNT Button
+countButton.addEventListener("click", function() {
+  let number = document.body.querySelector(".log").firstChild.innerHTML;
+  insertLog(number.toString().length);
+});
+
 // + BUTTON
 sumButton.addEventListener("click", function() {
   const firstNumber = parseInt(firstInput.value);
   const secondNumber = parseInt(secondInput.value);
-  result.innerHTML = sum(firstNumber, secondNumber);
-  insertLog(`${firstNumber} + ${secondNumber}`);
+  result.innerHTML = insertLog(sum(firstNumber, secondNumber));
 });
 
 // - BUTTON
 subButton.addEventListener("click", function() {
   const firstNumber = parseInt(firstInput.value);
   const secondNumber = parseInt(secondInput.value);
-  result.innerHTML = sub(firstNumber, secondNumber);
-  insertLog(`${firstNumber} - ${secondNumber}`);
+  result.innerHTML = insertLog(sub(firstNumber, secondNumber));
 });
 
 // - * BUTTON
 multButton.addEventListener("click", function() {
   const firstNumber = parseInt(firstInput.value);
   const secondNumber = parseInt(secondInput.value);
-  result.innerHTML = mult(firstNumber, secondNumber);
-  insertLog(`${firstNumber} * ${secondNumber}`);
+  result.innerHTML = insertLog(mult(firstNumber, secondNumber));
 });
 
 // - / BUTTON
 divideButton.addEventListener("click", function() {
   const firstNumber = parseInt(firstInput.value);
   const secondNumber = parseInt(secondInput.value);
-  result.innerHTML = divide(firstNumber, secondNumber);
-  insertLog(`${firstNumber} / ${secondNumber}`);
+  result.innerHTML = insertLog(divide(firstNumber, secondNumber));
 });
 
 //add new div test
@@ -66,6 +82,6 @@ function insertLog(content) {
 }
 
 //add new result with string count of last result
-countButton.addEventListener("click", function() {
-  result.innerHTML = countDigits();
-});
+// countButton.addEventListener("click", function() {
+//   result.innerHTML = countDigits();
+// });

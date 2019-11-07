@@ -23,7 +23,7 @@ clearButton.addEventListener("click", function() {
     .insertBefore(newElement, document.body.querySelector(".log").firstChild);
 });
 
-// CROSS Button (Only Works >= 0 -- WHY?)
+// CROSS Button
 crossButton.addEventListener("click", function() {
   let value = document.body.querySelector(".log").firstChild.innerHTML;
   let cross = value
@@ -72,7 +72,7 @@ divideButton.addEventListener("click", function() {
   result.innerHTML = insertLog(divide(firstNumber, secondNumber));
 });
 
-//add new div test
+// ADD NEW DIV
 function insertLog(content) {
   let newElement = document.createElement("div");
   newElement.className = "equals";

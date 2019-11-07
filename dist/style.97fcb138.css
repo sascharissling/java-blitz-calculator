@@ -70,6 +70,13 @@ input[name=second] {
   width: 25%;
   border-radius: 15px;
 }
+.sum:active,
+.sub:active,
+.mult:active,
+.divide:active {
+  transform: translate(0px, 2px);
+  box-shadow: none;
+}
 
 .number {
   background: transparent;
@@ -83,6 +90,10 @@ input[name=second] {
   height: 60px;
   border-radius: 15px;
 }
+.number:active {
+  transform: translate(0px, 2px);
+  box-shadow: none;
+}
 
 .number_equal {
   background: #ff7c14;
@@ -94,6 +105,10 @@ input[name=second] {
   width: 25%;
   height: 60px;
   border-radius: 15px;
+}
+.number_equal:active {
+  transform: translate(0px, 2px);
+  box-shadow: none;
 }
 
 .low_number {
@@ -108,6 +123,10 @@ input[name=second] {
   height: 60px;
   border-radius: 15px;
 }
+.low_number:active {
+  transform: translate(0px, 2px);
+  box-shadow: none;
+}
 
 .low_number_equal {
   background: #ff7c14;
@@ -118,6 +137,10 @@ input[name=second] {
   margin: 5px;
   width: 50%;
   border-radius: 15px;
+}
+.low_number_equal:active {
+  transform: translate(0px, 2px);
+  box-shadow: none;
 }
 
 .log {

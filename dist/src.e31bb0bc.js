@@ -159,43 +159,53 @@ var sumButton = document.querySelector(".sum");
 var subButton = document.querySelector(".sub");
 var multButton = document.querySelector(".mult");
 var divideButton = document.querySelector(".divide");
-var countButton = document.querySelector("#count");
 var result = document.querySelector("#result");
-var clearButton = document.querySelector("#clear"); // CLEAR BUTTON
+var clearButton = document.querySelector("#clear");
+var crossButton = document.querySelector("#cross");
+var countButton = document.querySelector("#count"); // CLEAR BUTTON
 
 clearButton.addEventListener("click", function () {
   document.querySelector(".log").innerHTML = "";
   var newElement = document.createElement("div");
   newElement.innerHTML = "";
   document.body.querySelector(".log").insertBefore(newElement, document.body.querySelector(".log").firstChild);
+}); // CROSS Button (Only Works >= 0 -- WHY?)
+
+crossButton.addEventListener("click", function () {
+  var value = document.body.querySelector(".log").firstChild.innerHTML;
+  var cross = value.toString().split("").map(Number).reduce(function (acc, current) {
+    return acc + current;
+  }, 0);
+  insertLog(cross);
+}); // COUNT Button
+
+countButton.addEventListener("click", function () {
+  var number = document.body.querySelector(".log").firstChild.innerHTML;
+  insertLog(number.toString().length);
 }); // + BUTTON
 
 sumButton.addEventListener("click", function () {
   var firstNumber = parseInt(firstInput.value);
   var secondNumber = parseInt(secondInput.value);
-  result.innerHTML = (0, _operators.sum)(firstNumber, secondNumber);
-  insertLog("".concat(firstNumber, " + ").concat(secondNumber));
+  result.innerHTML = insertLog((0, _operators.sum)(firstNumber, secondNumber));
 }); // - BUTTON
 
 subButton.addEventListener("click", function () {
   var firstNumber = parseInt(firstInput.value);
   var secondNumber = parseInt(secondInput.value);
-  result.innerHTML = (0, _operators.sub)(firstNumber, secondNumber);
-  insertLog("".concat(firstNumber, " - ").concat(secondNumber));
+  result.innerHTML = insertLog((0, _operators.sub)(firstNumber, secondNumber));
 }); // - * BUTTON
 
 multButton.addEventListener("click", function () {
   var firstNumber = parseInt(firstInput.value);
   var secondNumber = parseInt(secondInput.value);
-  result.innerHTML = (0, _operators.mult)(firstNumber, secondNumber);
-  insertLog("".concat(firstNumber, " * ").concat(secondNumber));
+  result.innerHTML = insertLog((0, _operators.mult)(firstNumber, secondNumber));
 }); // - / BUTTON
 
 divideButton.addEventListener("click", function () {
   var firstNumber = parseInt(firstInput.value);
   var secondNumber = parseInt(secondInput.value);
-  result.innerHTML = (0, _operators.divide)(firstNumber, secondNumber);
-  insertLog("".concat(firstNumber, " / ").concat(secondNumber));
+  result.innerHTML = insertLog((0, _operators.divide)(firstNumber, secondNumber));
 }); //add new div test
 
 function insertLog(content) {
@@ -205,11 +215,9 @@ function insertLog(content) {
   newElement.innerHTML = content;
   document.body.querySelector(".log").insertBefore(newElement, document.body.querySelector(".log").firstChild);
 } //add new result with string count of last result
-
-
-countButton.addEventListener("click", function () {
-  result.innerHTML = (0, _operators.countDigits)();
-});
+// countButton.addEventListener("click", function() {
+//   result.innerHTML = countDigits();
+// });
 },{"./lib/operators":"lib/operators.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -238,7 +246,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55516" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61607" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

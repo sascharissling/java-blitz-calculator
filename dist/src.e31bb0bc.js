@@ -180,10 +180,14 @@ divideButton.addEventListener("click", function () {
   var firstNumber = parseInt(firstInput.value);
   var secondNumber = parseInt(secondInput.value);
   result.innerHTML = (0, _operators.divide)(firstNumber, secondNumber);
-});
+}); //add new result with string count of last result
+
 countButton.addEventListener("click", function () {
   result.innerHTML = (0, _operators.countDigits)();
-}); //add new element with string count
+}); //add new div test
+
+var newElement = document.createElement("div");
+document.body.querySelector(".result").appendChild(newElement);
 },{"./lib/operators":"lib/operators.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -212,7 +216,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64345" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60522" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -1,6 +1,13 @@
 "use strict";
 
-import { sum, sub, mult, divide, countDigits } from "./lib/operators";
+import {
+  sum,
+  sub,
+  mult,
+  divide,
+  countDigits,
+  createDivWithContent
+} from "./lib/operators";
 
 const firstInput = document.querySelector("[name=first]");
 const secondInput = document.querySelector("[name=second]");
@@ -9,7 +16,6 @@ const subButton = document.querySelector(".sub");
 const multButton = document.querySelector(".mult");
 const divideButton = document.querySelector(".divide");
 const countButton = document.querySelector("#count");
-
 const result = document.querySelector("#result");
 
 sumButton.addEventListener("click", function() {
@@ -36,8 +42,11 @@ divideButton.addEventListener("click", function() {
   result.innerHTML = divide(firstNumber, secondNumber);
 });
 
+//add new result with string count of last result
 countButton.addEventListener("click", function() {
   result.innerHTML = countDigits();
 });
 
-//add new element with string count
+//add new div test
+let newElement = document.createElement("div");
+document.body.querySelector(".result").appendChild(newElement);

@@ -21,6 +21,7 @@ const result = document.querySelector("#result");
 sumButton.addEventListener("click", function() {
   const firstNumber = parseInt(firstInput.value);
   const secondNumber = parseInt(secondInput.value);
+  insertLog(`${firstNumber} + ${secondNumber}`);
   result.innerHTML = sum(firstNumber, secondNumber);
 });
 
@@ -48,5 +49,18 @@ countButton.addEventListener("click", function() {
 });
 
 //add new div test
-let newElement = document.createElement("div");
-document.body.querySelector(".result").appendChild(newElement);
+function insertLog(content) {
+  let newElement = document.createElement("div");
+  newElement.className = "equals";
+  newElement.id = "result";
+  newElement.innerHTML = content;
+  document.body
+    .querySelector(".result")
+    .insertBefore(
+      newElement,
+      document.body.querySelector(".result").firstChild
+    );
+}
+
+insertLog("moin");
+insertLog("moinsen");

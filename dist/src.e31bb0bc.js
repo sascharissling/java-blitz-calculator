@@ -164,7 +164,7 @@ clearButton.addEventListener("click", function () {
   var newElement = document.createElement("div");
   newElement.innerHTML = "";
   document.body.querySelector(".log").insertBefore(newElement, document.body.querySelector(".log").firstChild);
-}); // CROSS Button (Only Works >= 0 -- WHY?)
+}); // CROSS Button
 
 crossButton.addEventListener("click", function () {
   var value = document.body.querySelector(".log").firstChild.innerHTML;
@@ -201,7 +201,7 @@ divideButton.addEventListener("click", function () {
   var firstNumber = parseInt(firstInput.value);
   var secondNumber = parseInt(secondInput.value);
   result.innerHTML = insertLog((0, _operators.divide)(firstNumber, secondNumber));
-}); //add new div test
+}); // ADD NEW DIV
 
 function insertLog(content) {
   var newElement = document.createElement("div");
@@ -238,7 +238,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62742" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62756" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

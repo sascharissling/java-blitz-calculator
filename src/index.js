@@ -1,6 +1,6 @@
 "use strict";
 
-import { sum, sub, mult, divide, countDigits } from "./lib/operators";
+import { sum, sub, mult, divide } from "./lib/operators";
 
 const firstInput = document.querySelector("[name=first]");
 const secondInput = document.querySelector("[name=second]");
@@ -27,6 +27,8 @@ clearButton.addEventListener("click", function() {
 crossButton.addEventListener("click", function() {
   let value = document.body.querySelector(".log").firstChild.innerHTML;
   let cross = value
+    .replace(".", "")
+    .replace("-", "")
     .toString()
     .split("")
     .map(Number)
@@ -80,8 +82,3 @@ function insertLog(content) {
     .querySelector(".log")
     .insertBefore(newElement, document.body.querySelector(".log").firstChild);
 }
-
-//add new result with string count of last result
-// countButton.addEventListener("click", function() {
-//   result.innerHTML = countDigits();
-// });

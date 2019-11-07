@@ -127,7 +127,6 @@ exports.sum = sum;
 exports.sub = sub;
 exports.mult = mult;
 exports.divide = divide;
-exports.countDigits = countDigits;
 
 function sum(first, second) {
   return first + second;
@@ -143,10 +142,6 @@ function mult(first, second) {
 
 function divide(first, second) {
   return first / second;
-}
-
-function countDigits(number) {
-  return number.toString().length;
 }
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
@@ -173,7 +168,7 @@ clearButton.addEventListener("click", function () {
 
 crossButton.addEventListener("click", function () {
   var value = document.body.querySelector(".log").firstChild.innerHTML;
-  var cross = value.toString().split("").map(Number).reduce(function (acc, current) {
+  var cross = value.replace(".", "").replace("-", "").toString().split("").map(Number).reduce(function (acc, current) {
     return acc + current;
   }, 0);
   insertLog(cross);
@@ -214,10 +209,7 @@ function insertLog(content) {
   newElement.id = "result";
   newElement.innerHTML = content;
   document.body.querySelector(".log").insertBefore(newElement, document.body.querySelector(".log").firstChild);
-} //add new result with string count of last result
-// countButton.addEventListener("click", function() {
-//   result.innerHTML = countDigits();
-// });
+}
 },{"./lib/operators":"lib/operators.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -246,7 +238,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56595" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62742" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
